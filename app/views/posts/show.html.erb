@@ -1,0 +1,15 @@
+<%=render @post %>
+<div id="comments">
+<%=render @post.comments %>
+</div>
+<hr>
+<%= semantic_form_for [@post, @comment] do |f| %>
+<fieldset>
+<ol>
+<%= f.input :name %>
+<%= f.input :content, :as=>:text, :input_html => {:rows => 5} %>
+</ol>
+</fieldset>
+<%= f.buttons %>
+<% end %>
+<%= link_to 'All Posts', posts_path %>
